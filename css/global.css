@@ -1,0 +1,53 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+body{font-family:"Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti, "Microsoft YaHei"; font-size: 12px;}
+ol,ul{list-style:none;}
+input{-webkit-appearance: none;}
+blockquote,q{quotes:none;}
+table{border-collapse:collapse;border-spacing:0;}
+html,body{ height: 100%;}
+
+*{box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box; -webkit-tap-highlight-color:transparent}
+a{color:#040404;text-decoration:none;-webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;}
+img{border:0 none;}
+img.response{
+	width: 100%;
+}
+
+.fl{float: left;}
+.fr{float: right;}
+.ainlineblock{ display: inline-block;}
+.framework-topbar{ background-color: #373d41; height: 50px; position: fixed; top: 0; left: 0;  width: 100%;}
+.framework-topbar .topbar-left,.framework-topbar .topbar-right{ height: 50px; background-color: #2a2f32}
+.topbarlink.nickname{ padding: 0 10px;margin-right: 1px;}
+.topbar-left .logo{  display: flex; display: -webkit-flex; justify-content:center; align-items:center; margin-right: 1px;}
+.topbarlink{display: inline-block; background-color: #373d41;height: 50px; line-height: 50px; font-size: 14px; color: #fff; text-align: center; transition:background .2s; -webkit-transition:background .2s; -moz-transition:background .2s;}
+.topbarlink.home{ width: 120px;}
+.topbarlink.quiet{ width: 70px;}
+.topbarlink:hover{ background-color: #2a2f32; transition:background .2s; -webkit-transition:background .2s; -moz-transition:background .2s;}
+.topbar-left .logo img{ height: 40px; vertical-align: middle; padding: 0 10px;}
+.framework-sidebar{ position: fixed;top: 50px; bottom: 0; left: 0; background-color: #293038; width: 180px; overflow-x: hidden; overflow-y: auto;}
+.framework-sidebar > ul li a{display: block; color: #fff; line-height: 40px; background-color: #42485B; text-indent: 20px;transition:background .2s; -webkit-transition:background .2s; -moz-transition:background .2s;}
+.framework-sidebar > ul li a:hover{background-color:#00C1DE;transition:background .2s; -webkit-transition:background .2s; -moz-transition:background .2s;}
+.framework-sidebar a .icon{ margin-right: 10px;}
+.framework-main{ position: absolute; background-color: #eaedf1; left: 180px; bottom: 0; top: 50px; right: 0; overflow: auto;  }
+.framework-main-body{ position: relative;padding: 8px;}
+.framework-main-left{ padding-right: 336px;}
+.framework-main-right{ width: 336px; position: absolute; top: 0; right: 0; padding: 8px;}
+h1{ font-size: 14px; color: #333; margin-bottom: 16px}
+.icon-user,.icon-display,.icon-stats-dots,.icon-briefcase,.icon-paste{ font-size: 16px; vertical-align: sub;}
+.icon {display: inline-block;width: 1em; height: 1em; stroke-width: 0; stroke: currentColor; fill: currentColor;}
+.tipcard:after{ content: ''; display: block; clear: both; visibility: hidden;}
+.pandect-count li{ line-height: 38px; background-color: #F5F5F6; font-size: 14px; margin-bottom: 4px;}
+.pandect-count li span{ display: inline-block; width: 50%;}
+.pandect-count .count-tit{ text-indent: 24px; }
+.pandect-count .count-num{ font-size: 18px;}
+.txt-gray{ color: #bbb}
+.information-card{box-shadow: 0 1px 1px rgba(0,0,0,0.15); background-color: #fff;}
+.information-card .tit{ line-height: 45px; font-size: 14px; border-bottom: 1px solid #F2F2F2; color: #666; background-color: #F5F5F6; text-indent: 16px;}
+.information-card .con{ padding: 16px;}
+.information-card .con p{ line-height: 24px;}
+.tip-card{box-shadow: 0 1px 1px rgba(0,0,0,0.15); background-color: #fff; padding: 16px;}
+.tip-card{ display: flex; display: -webkit-flex; justify-content: space-between;}
