@@ -28,9 +28,11 @@ img.response{
 .topbarlink.quiet{ width: 70px;}
 .topbarlink:hover{ background-color: #2a2f32; transition:background .2s; -webkit-transition:background .2s; -moz-transition:background .2s;}
 .topbar-left .logo img{ height: 40px; vertical-align: middle; padding: 0 10px;}
-.framework-sidebar{ position: fixed;top: 50px; bottom: 0; left: 0; background-color: #293038; width: 180px; overflow-x: hidden; overflow-y: auto;}
-.framework-sidebar > ul li a{display: block; color: #fff; line-height: 40px; background-color: #42485B; text-indent: 20px;transition:background .2s; -webkit-transition:background .2s; -moz-transition:background .2s;}
-.framework-sidebar > ul li a:hover{background-color:#00C1DE;transition:background .2s; -webkit-transition:background .2s; -moz-transition:background .2s;}
+.framework-sidebar{ position: fixed;top: 50px; bottom: 0; left: 0; background-color: #293038; width: 180px; overflow: hidden;}
+.framework-sidebar > ul a{display: block; color: #fff; line-height: 40px; background-color: #42485B; text-indent: 20px;transition:background .2s; -webkit-transition:background .2s; -moz-transition:background .2s;}
+.framework-sidebar > ul a:hover{background-color:#00C1DE;transition:background .2s; -webkit-transition:background .2s; -moz-transition:background .2s;}
+.framework-sidebar > ul a + ul a{ background-color: transparent; text-indent: 50px;}
+.framework-sidebar > ul a + ul{ height: 0; overflow: hidden; transition:height .2s; -webkit-transition:height .2s; -moz-transition:height .2s;}
 .framework-sidebar a .icon{ margin-right: 10px;}
 .framework-main{ position: absolute; background-color: #eaedf1; left: 180px; bottom: 0; top: 50px; right: 0; overflow: auto;  }
 .framework-main-body{ position: relative;padding: 8px;}
