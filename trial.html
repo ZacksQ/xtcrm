@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>合同管理 - 象塔直播客户管理系统</title>
+	<title>试用客户 - 象塔直播客户管理系统</title>
 	<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
 	<link rel="stylesheet" type="text/css" href="css/global.css" />
 	<link rel="stylesheet" type="text/css" href="css/contract.css" />	
@@ -65,8 +65,8 @@
 		<div class="framework-main">
 			<div class="framework-main-body">				
 				<div class="con-tit">
-					<h1>合同列表</h1>
-					<button id="addcontract" class="btn btn-primary fr">录入合同</button>
+					<h1>试用客户列表</h1>
+					<button id="assignaccount" class="btn btn-primary fr">分配账号</button>
 				</div>				
 				<table class="layui-table">
 				  <colgroup>
@@ -74,87 +74,35 @@
 				    <col width="200">
 				    <col width="200">
 				    <col width="200">
+				    <col width="200">
 				    <col width="50">
 				  </colgroup>
 				  <thead>
 				    <tr>
-				      <th>合同编号</th>
-				      <th>客户名称</th>
-				      <th>合同类型</th>
+				      <th>账号</th>
+				      <th>客户来源</th>
+				      <th>注册时间</th>
 				      <th>有效期</th>
+				      <th>客户经理</th>
 				      <th>操作</th>
 				    </tr> 
 				  </thead>
 				  <tbody>
 				    <tr>
-				      <td>XT201706264123</td>
-				      <td>中国联合通信有限公司</td>
-				      <td>正式合同</td>
-				      <td>2017-10-20</td>
-				      <td><a href="#" class="showcontract">查看</a></td>
-				    </tr>
-				     <tr>
-				      <td>XT201706264123</td>
-				      <td>中国联合通信有限公司</td>
-				      <td>正式合同</td>
-				      <td>2017-10-20</td>
-				      <td><a href="#" class="showcontract">查看</a></td>
-				    </tr>
-				     <tr>
-				      <td>XT201706264123</td>
-				      <td>中国联合通信有限公司</td>
-				      <td>正式合同</td>
-				      <td>2017-10-20</td>
-				      <td><a href="#" class="showcontract">查看</a></td>
+				      <td>13212345678</td>
+				      <td>分配账号</td>
+				      <td>2017-11-20</td>
+				      <td>7天</td>
+				      <td>郑奇大人</td>
+				      <td><a href="#" class="becomefull">转正</a></td>
 				    </tr>
 				    <tr>
-				      <td>XT201706264123</td>
-				      <td>中国联合通信有限公司</td>
-				      <td>正式合同</td>
-				      <td>2017-10-20</td>
-				      <td><a href="#" class="showcontract">查看</a></td>
-				    </tr>
-				    <tr>
-				      <td>XT201706264123</td>
-				      <td>中国联合通信有限公司</td>
-				      <td>正式合同</td>
-				      <td>2017-10-20</td>
-				      <td><a href="#" class="showcontract">查看</a></td>
-				    </tr>
-				    <tr>
-				      <td>XT201706264123</td>
-				      <td>中国联合通信有限公司</td>
-				      <td>正式合同</td>
-				      <td>2017-10-20</td>
-				      <td><a href="#" class="showcontract">查看</a></td>
-				    </tr>
-				     <tr>
-				      <td>XT201706264123</td>
-				      <td>中国联合通信有限公司</td>
-				      <td>正式合同</td>
-				      <td>2017-10-20</td>
-				      <td><a href="#" class="showcontract">查看</a></td>
-				    </tr>
-				     <tr>
-				      <td>XT201706264123</td>
-				      <td>中国联合通信有限公司</td>
-				      <td>正式合同</td>
-				      <td>2017-10-20</td>
-				      <td><a href="#" class="showcontract">查看</a></td>
-				    </tr>
-				    <tr>
-				      <td>XT201706264123</td>
-				      <td>中国联合通信有限公司</td>
-				      <td>正式合同</td>
-				      <td>2017-10-20</td>
-				      <td><a href="#" class="showcontract">查看</a></td>
-				    </tr>
-				    <tr>
-				      <td>XT201706264123</td>
-				      <td>中国联合通信有限公司</td>
-				      <td>正式合同</td>
-				      <td>2017-10-20</td>
-				      <td><a href="#" class="showcontract">查看</a></td>
+				      <td>13212345678</td>
+				      <td>自行注册</td>
+				      <td>2017-11-20</td>
+				      <td>7天</td>
+				      <td>郑奇大人</td>
+				      <td><a href="#" class="becomefull">转正</a></td>
 				    </tr>
 				  </tbody>
 				</table>
@@ -163,66 +111,70 @@
 		</div>
 	</div>
 	<div class="layui-layer-shade" id="dialog-shade" times="1" style="z-index:19891014; background-color:#000; opacity:0.3; filter:alpha(opacity=30); display:none"></div>
-	<div class="layui-layer layui-layer-dialog  layer-anim" id="contract-dialog" type="dialog" times="1" showtime="0" contype="string" style="z-index: 19891015; width: 360px; top: 25%; left: 0;right:0; margin:auto; display:none"><div class="layui-layer-title" style="cursor: move;">录入合同</div><div id="" class="layui-layer-content">
+	<div class="layui-layer layui-layer-dialog  layer-anim" id="assignacount-dialog" type="dialog" times="1" showtime="0" contype="string" style="z-index: 19891015; width: 360px; top: 25%; left: 0;right:0; margin:auto; display:none"><div class="layui-layer-title" style="cursor: move;">录入合同</div><div id="" class="layui-layer-content">
 		<form class="layui-form" action="">
 			<div class="layui-form-item">
-				<label class="layui-form-label" for="">合同类型</label>
+				<label class="layui-form-label" for="">客户经理</label>
 				<div class="layui-input-block">
 					<select name="" id="">
 						<option value=""></option>
-						<option value="0">正式合同</option>
-						<option value="1">临时合同</option>
+						<option value="0">郑奇大人</option>
+						<option value="1">还是郑奇大人</option>
 					</select>
 				</div>
 			</div>
 			<div class="layui-form-item">
-				<label class="layui-form-label" for="">到期时间</label>
+				<label class="layui-form-label" for="">手机号</label>
 				<div class="layui-input-block">
-					<input type="text" name="duetime" id="LAY_demorange_s" class="layui-input">
+					<input type="text" name="tel" class="layui-input">
 				</div>
 			</div>
 			<div class="layui-form-item">
-				<label class="layui-form-label" for="">合同扫描件</label>
+				<label class="layui-form-label" for="">密码</label>
 				<div class="layui-input-block">
-					<div class="plusarea">
-						<input type="file">
-					</div>					
+					<input type="password" name="password" class="layui-input">
 				</div>
 			</div>
-			<div>
-				<ul>
-					<li></li>
-				</ul>
-			</div>
+			
+		</form>
+	</div><span class="layui-layer-setwin"><a class="layui-layer-ico layui-layer-close layui-layer-close1" href="javascript:;"></a></span><div class="layui-layer-btn layui-layer-btn-"><a class="layui-layer-btn0">确定</a></div><span class="layui-layer-resize"></span></div>
+
+	<div class="layui-layer layui-layer-dialog  layer-anim" id="becomefull-dialog" type="dialog" times="1" showtime="0" contype="string" style="z-index: 19891015; width: 360px; top: 25%; left: 0;right:0; margin:auto; display:none"><div class="layui-layer-title" style="cursor: move;">录入合同</div><div id="" class="layui-layer-content">
+		<form class="layui-form" action="">
+			<div class="layui-form-item">
+				<label class="layui-form-label" for="">选择合同</label>
+				<div class="layui-input-block">
+					<select name="" id="">
+						<option value=""></option>
+						<option value="0">HD20170626147</option>
+						<option value="1">HD20170626148</option>
+					</select>
+				</div>
+			</div>			
 		</form>
 	</div><span class="layui-layer-setwin"><a class="layui-layer-ico layui-layer-close layui-layer-close1" href="javascript:;"></a></span><div class="layui-layer-btn layui-layer-btn-"><a class="layui-layer-btn0">确定</a></div><span class="layui-layer-resize"></span></div>
 	<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="layui/layui.js"></script>
 	<script src="js/common.js"></script>
 	<script>
-		layui.use(['layer', 'laypage', 'form', 'laydate'], function(args){
+		layui.use(['layer', 'laypage', 'form'], function(args){
 		    var layer = layui.layer,
 		    	laypage = layui.laypage,
-		    	form = layui.form(),
-		    	laydate = layui.laydate;
-		    var start = {
-			    min: laydate.now()
-			    ,max: '2099-06-16 23:59:59'
-			    ,istoday: false
-			    
-			  };
-			 document.getElementById('LAY_demorange_s').onclick = function(){
-			    start.elem = this;
-			    laydate(start);
-			  }
+		    	form = layui.form();
+
 		    laypage({
 			    cont: 'laypage'
 			    ,skin: '#0099cc'
 			    ,pages: 3 //总页数
 			  });
 
-		    $("#addcontract").click(function(){
-		    	$("#contract-dialog").fadeIn().removeClass("layer-anim-close");
+		    $("#assignaccount").click(function(){
+		    	$("#assignacount-dialog").fadeIn().removeClass("layer-anim-close");
+		    	$("#dialog-shade").fadeIn();
+		    });
+
+		    $(".becomefull").click(function(){
+		    	$("#becomefull-dialog").fadeIn().removeClass("layer-anim-close");
 		    	$("#dialog-shade").fadeIn();
 		    });
 
@@ -231,11 +183,6 @@
 				$("#dialog-shade").fadeOut();
 			});
 
-			$(".showcontract").click(function(){
-				layer.open({
-					title: '合同查看',
-				});
-			})
 		  });  
 
 	</script>

@@ -26,7 +26,7 @@ h1{ font-size: 14px; color: #333; margin-bottom: 16px}
 .topbarlink{display: inline-block; background-color: #373d41;height: 50px; line-height: 50px; font-size: 14px; color: #fff; text-align: center; transition:background .2s; -webkit-transition:background .2s; -moz-transition:background .2s;}
 .topbarlink.home{ width: 120px;}
 .topbarlink.quiet{ width: 70px;}
-.topbarlink:hover{ background-color: #2a2f32; transition:background .2s; -webkit-transition:background .2s; -moz-transition:background .2s;}
+.topbarlink:hover{ background-color: #2a2f32; color: #fff; transition:background .2s; -webkit-transition:background .2s; -moz-transition:background .2s;}
 .topbar-left .logo img{ height: 40px; vertical-align: middle; padding: 0 10px;}
 .framework-sidebar{ position: fixed;top: 50px; bottom: 0; left: 0; background-color: #293038; width: 180px; overflow: hidden;}
 .framework-sidebar > ul a{display: block; color: #fff; line-height: 40px; background-color: #42485B; text-indent: 20px;transition:background .2s; -webkit-transition:background .2s; -moz-transition:background .2s;}
@@ -64,3 +64,4 @@ h1{ font-size: 14px; color: #333; margin-bottom: 16px}
 .plusarea:before{ display: block; width: 5px;height: 40px; background-color: #deeaf9; content: ''; position: absolute; left: 0;right: 0; top: 0; bottom: 0; margin: auto;border-radius: 5px;}
 .plusarea:after{ display: block; width: 40px;height: 5px; background-color: #deeaf9; content: ''; position: absolute; left: 0;right: 0; top:0; bottom: 0; margin: auto; border-radius: 5px;}
 .plusarea input[type=file]{ position: absolute; width: 100%; height: 100%; opacity: 0; cursor: pointer; top: 0; left: 0; z-index: 9}
+.layui-layer-dialog .layui-layer-content{ overflow: initial !important; overflow-y: initial !important; overflow-x: initial !important;}
