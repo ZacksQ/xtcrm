@@ -15,7 +15,7 @@ img{border:0 none;}
 img.response{
 	width: 100%;
 }
-
+h1{ font-size: 14px; color: #333; margin-bottom: 16px}
 .fl{float: left;}
 .fr{float: right;}
 .ainlineblock{ display: inline-block;}
@@ -36,9 +36,6 @@ img.response{
 .framework-sidebar a .icon{ margin-right: 10px;}
 .framework-main{ position: absolute; background-color: #eaedf1; left: 180px; bottom: 0; top: 50px; right: 0; overflow: auto;  }
 .framework-main-body{ position: relative;padding: 8px;}
-.framework-main-left{ padding-right: 336px;}
-.framework-main-right{ width: 336px; position: absolute; top: 0; right: 0; padding: 8px;}
-h1{ font-size: 14px; color: #333; margin-bottom: 16px}
 .icon-user,.icon-display,.icon-stats-dots,.icon-briefcase,.icon-paste{ font-size: 16px; vertical-align: sub;}
 .icon {display: inline-block;width: 1em; height: 1em; stroke-width: 0; stroke: currentColor; fill: currentColor;}
 .tipcard:after{ content: ''; display: block; clear: both; visibility: hidden;}
@@ -53,3 +50,13 @@ h1{ font-size: 14px; color: #333; margin-bottom: 16px}
 .information-card .con p{ line-height: 24px;}
 .tip-card{box-shadow: 0 1px 1px rgba(0,0,0,0.15); background-color: #fff; padding: 16px;}
 .tip-card{ display: flex; display: -webkit-flex; justify-content: space-between;}
+.btn{ display: inline-block;  padding: 8px 16px; cursor: pointer; transition:border .2s, background .2s; -webkit-transition:border .2s, background .2s; -moz-transition:border .2s, background .2s; font-size: 12px;}
+.btn:hover{;transition:border .2s, background .2s; -webkit-transition:border .2s, background .2s; -moz-transition:border .2s, background .2s;}
+.btn-default{ color: #333; background-color: #f7f7f7; border:1px solid #ddd; }
+.btn-primary{ color: #fff; background-color: #09c; border: 1px solid #09c;}
+.btn-primary:hover{ color: #fff; background-color: #28b5d6; border: 1px solid #28b5d6}
+.con-tit{ border-bottom: 1px solid #ddd; padding: 8px 0 4px;}
+.con-tit h1{ border-left: 2px solid #88B7E0; padding-left: 8px; display: inline-block; margin-bottom: 7; margin-top: 7px;}
+.layui-table td,.layui-table th{ font-size: 12px;}
+.layui-table a{ color: #0099cc}
+#laypage{ text-align: center;}
