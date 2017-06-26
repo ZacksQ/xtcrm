@@ -63,7 +63,7 @@
 			</ul>
 		</div>
 		<div class="framework-main">
-			<div class="framework-main-body">
+			<div class="framework-main-body">				
 				<div class="con-tit">
 					<h1>合同列表</h1>
 					<button id="addcontract" class="btn btn-primary fr">录入合同</button>
@@ -162,19 +162,82 @@
 			</div>
 		</div>
 	</div>
+	<div class="layui-layer-shade" id="dialog-shade" times="1" style="z-index:19891014; background-color:#000; opacity:0.3; filter:alpha(opacity=30); display:none"></div>
+	<div class="layui-layer layui-layer-dialog  layer-anim" id="contract-dialog" type="dialog" times="1" showtime="0" contype="string" style="z-index: 19891015; width: 360px; top: 25%; left: 0;right:0; margin:auto; display:none"><div class="layui-layer-title" style="cursor: move;">录入合同</div><div id="" class="layui-layer-content">
+		<form class="layui-form" action="">
+			<div class="layui-form-item">
+				<label class="layui-form-label" for="">合同类型</label>
+				<div class="layui-input-block">
+					<select name="" id="">
+						<option value=""></option>
+						<option value="0">正式合同</option>
+						<option value="1">临时合同</option>
+					</select>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label" for="">到期时间</label>
+				<div class="layui-input-block">
+					<input type="text" name="duetime" id="LAY_demorange_s" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label" for="">合同扫描件</label>
+				<div class="layui-input-block">
+					<div class="plusarea">
+						<input type="file">
+					</div>					
+				</div>
+			</div>
+			<div>
+				<ul>
+					<li></li>
+				</ul>
+			</div>
+		</form>
+	</div><span class="layui-layer-setwin"><a class="layui-layer-ico layui-layer-close layui-layer-close1" href="javascript:;"></a></span><div class="layui-layer-btn layui-layer-btn-"><a class="layui-layer-btn0">确定</a></div><span class="layui-layer-resize"></span></div>
 	<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="layui/layui.js"></script>
 	<script src="js/common.js"></script>
 	<script>
-		layui.use(['layer', 'laypage'], function(args){
+		layui.use(['layer', 'laypage', 'form', 'laydate'], function(args){
 		    var layer = layui.layer,
-		    	laypage = layui.laypage;
+		    	laypage = layui.laypage,
+		    	form = layui.form(),
+		    	laydate = layui.laydate;
+		    var start = {
+			    min: laydate.now()
+			    ,max: '2099-06-16 23:59:59'
+			    ,istoday: false
+			    
+			  };
+			 document.getElementById('LAY_demorange_s').onclick = function(){
+			    start.elem = this;
+			    laydate(start);
+			  }
 		    laypage({
 			    cont: 'laypage'
 			    ,skin: '#0099cc'
-			    ,pages: 100 //总页数
+			    ,pages: 3 //总页数
 			  });
-		  });    
+
+		    $("#addcontract").click(function(){
+		    	$("#contract-dialog").fadeIn().removeClass("layer-anim-close");
+		    	$("#dialog-shade").fadeIn();
+		    });
+
+		    $(".layui-layer-close").click(function() {
+				$("#contract-dialog").fadeOut().addClass("layer-anim-close");
+				$("#dialog-shade").fadeOut();
+			});
+
+			$(".showcontract").click(function(){
+				layer.open({
+					title: '合同查看',
+				});
+			})
+		  });  
+
 	</script>
 </body>
 </html>
