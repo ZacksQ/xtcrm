@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* by 小9仔 20150424 */
+html { }
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p { padding:0; margin:0; }
+body { font-size: 12px; font-family: microsoft yahei; color: #333; background: #f1f1f1; }
+body.simsun { font-family: simsun; }
+ul,li { list-style: none; }
+img { border: 0; }
+input:focus { outline: none; }
+
+::selection { background: #000; color: #fff; }
+::-moz-selection { background: #000; color: #fff; }
+::-webkit-scrollbar { width: 15px; height: 15px; } 
+::-webkit-scrollbar-track-piece { background-color: #e2e2e2; } 
+::-webkit-scrollbar-thumb:vertical { height: 5px; background-color: #c6c6c6; border-left: 1px solid #c7c7c7; border-right: 1px solid #c7c7c7; } 
+::-webkit-scrollbar-thumb:vertical:hover { background-color: #666666; } 
+::-webkit-scrollbar-thumb:horizontal { width:5px; background-color:#cbcbcb; border-left:1px solid #c7c7c7; border-right:1px solid #c7c7c7; }
+
+/* 全局 */
+a { text-decoration: none; color: #333; }
+a:hover { text-decoration: underline; }
+
+/* 清理浮动 */
+.clearfix { clear: both; zoom: 1; }
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+
+.fl { float: left; }
+.fr { float: right; }
+
+.wrapper { width: 300px; margin: 190px auto 0; -webkit-animation: tiaoIn .6s ease-in; animation: tiaoIn .6s ease-in; }
+.wrapper h1 { text-align: center; line-height: 30px; margin-bottom: 20px; }
+.wrapper h1 a { color: #488fce; font-size: 22px; font-weight: normal; text-decoration: none; }
+
+@-webkit-keyframes tiaoIn {
+	0% { opacity: 0; -webkit-transform: scale(.3);}
+	50% { opacity: 1; -webkit-transform: scale(1.05);}
+	70% { -webkit-transform: scale(.9);}
+	100% { -webkit-transform: scale(1);}
+}
+@keyframes tiaoIn {
+	0% { opacity: 0; transform: scale(.3);}
+	50% { opacity: 1; transform: scale(1.05);}
+	70% { transform: scale(.9);}
+	100% { transform: scale(1);}
+}
+
+.login ul { background: #fff; border: 1px solid #eee; -webkit-box-shadow: 0 0 10px #dedede; box-shadow: 0 0 10px #dedede; border-radius: 5px; overflow: hidden; margin-bottom: 20px; width:298px; }
+.login li { border-top: 1px solid #d3d4d4; padding:5px; position: relative; }
+.login li:nth-child(1) { border-top: 0; }
+.login li .yanzheng { width: 112px; height: 40px; display: block; position: absolute; right: 2px; top: 2px; }
+.login .input { width: 275px; padding: 5px; border: 0; background: transparent; font-size: 18px; font-family: microsoft yahei; color: #999; }
+.login .input:hover, .login .input:focus { outline: none; color: #000; }
+.btn { width: 300px; height: 38px; padding: 0; margin: 0; background: #488fce; overflow: visible; color: #fff; font-size: 20px; cursor: pointer; font-family: microsoft yahei; border: 0; border-radius: 5px; -webkit-transition: all .2s ease-in; transition: all .2s ease-in; }
+.btn:hover{ -webkit-box-shadow: 0 0 10px #488fce; box-shadow: 0 0 10px #488fce; opacity: .9; filter: alpha(opacity=90); }
+
+.yyinfo { text-align: center; font-size: 12px; color: #999; line-height: 24px; margin-top: 30px; }
+.yyinfo a { color: #999; padding: 0 5px; }
+.yyinfo a:hover { color: #333; }
+
+
+.error { border: 1px solid #dedede; background: #fff; -webkit-box-shadow: 0 0 5px #ccc ; box-shadow: 0 0 5px #ccc; width: 500px; margin: 70px auto; }
+.error h2 { font-size: 14px; font-weight: bold; font-family: microsoft yahei; line-height: 40px; height: 40px; padding: 0 20px; color: #666; background: #f9f9f9; border-bottom: 1px solid #dfdfdf; }
+.error .error_con { padding: 20px 20px 30px 80px; background: url(../img/light.png) 20px 20px no-repeat; }
+.error .error_con p { line-height: 24px; }
+.error .error_btnbox { margin-top: 10px; }
+.error .error_btnbox .error_btn { color: #333; background: #fff; border: 1px solid #dedede; border-radius: 2px; text-shadow: 0 0 1px #fff; padding: 4px 10px; display: inline-block; text-decoration: none; text-align: center; margin-right: 10px; }
+.error .error_btnbox .error_btn:hover { opacity: .8; filter: alpha(opacity=80); background: #f1f1f1; }
+.error .error_btnbox .error_btn.on { background: #f90; border: 1px solid #f60; color: #fff; text-shadow: 0 0 1px #f30; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

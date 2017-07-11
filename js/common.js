@@ -36,12 +36,75 @@
 // 		}		
 // 	});
 // }
+//var g = {};
+var prefix_url = 'http://123.206.221.228:8081/newlivecrm/';
+var pagedevied = 10;
+// var prefix_url = 'http://www.xiangtazhibo.com/';
 
-$(".framework-sidebar a").bind("click", function(){
-	var nextNode = $(this).next();
-	if(parseInt(nextNode.css("height"))){
-		nextNode.css("height", 0);
-	}else{
-		nextNode.css("height", nextNode.children().length * 40 + 'px');
+$.ajax({
+	url: 'icon.html',
+	type: 'get',
+	dataType: 'html',
+	success: function(d){
+		$("body").prepend(d);
 	}
+});
+
+$.ajax({
+	url: 'nav.json',
+	type: 'get',
+	dataType: 'json',
+	success: function(d){
+		if(d){
+			var navbody = ''
+			d.forEach(function(item){
+				navbody += '<li><a href=' + (item["href"]?item["href"]:'javascript:;') +'><svg class="icon ' + item["icon"] + '"><use xlink:href="#' + item["icon"] + '"></use></svg>' + item["name"] + '</a>';
+				if(item["children"]){
+					var children = item["children"];
+					navbody += '<ul>';
+					children.forEach(function(child){
+						navbody += '<li><a href="' + child["href"] + '">' + child["name"] + '</a></li>'
+					});
+					navbody += '</ul>';					
+				}
+				navbody += '</li>'
+ 			});
+ 			$(".framework-sidebar ul").html(navbody);
+ 			bindnav();
+ 			var currmenu = location.pathname.match(/\w+(?=.html)/)[0];
+ 			var pa = $(".framework-sidebar a[href^="+(currmenu)+"]").addClass("on").parent().parent();
+ 			pa.css("height", pa.children().length * 40 + 'px');
+		}
+	}
+});
+
+function bindnav(){
+	$(".framework-sidebar a").bind("click", function(e){
+		// e.preventDefault();
+		var nextNode = $(this).next();
+		if(parseInt(nextNode.css("height"))){
+			nextNode.css("height", 0);
+		}else{
+			nextNode.css("height", nextNode.children().length * 40 + 'px');
+		}
+	});
+}
+
+$(".quiet").bind("click",function(e){
+	e.preventDefault();
+	$.ajax({
+		url: prefix_url + 'mManager/loginOut.do',
+		type: 'get',
+		dataType: 'json',
+		success: function(d){
+			if(d.success === true){
+				window.location.href = "login.html";
+			}else{
+				layui.use(['layer'], function(args){
+					var layer = layui.layer;
+					layer.msg(d.msg);
+				});
+			}
+		}
+	});
 });

@@ -30,7 +30,8 @@ h1{ font-size: 14px; color: #333; margin-bottom: 16px}
 .topbar-left .logo img{ height: 40px; vertical-align: middle; padding: 0 10px;}
 .framework-sidebar{ position: fixed;top: 50px; bottom: 0; left: 0; background-color: #293038; width: 180px; overflow: hidden;}
 .framework-sidebar > ul a{display: block; color: #fff; line-height: 40px; background-color: #42485B; text-indent: 20px;transition:background .2s; -webkit-transition:background .2s; -moz-transition:background .2s;}
-.framework-sidebar > ul a:hover{background-color:#00C1DE;transition:background .2s; -webkit-transition:background .2s; -moz-transition:background .2s;}
+.framework-sidebar > ul a:hover{background-color:#00C1DE !important;transition:background .2s; -webkit-transition:background .2s; -moz-transition:background .2s;}
+.framework-sidebar > ul a.on{background-color: rgba(0,193,222,.64);}
 .framework-sidebar > ul a + ul a{ background-color: transparent; text-indent: 50px;}
 .framework-sidebar > ul a + ul{ height: 0; overflow: hidden; transition:height .2s; -webkit-transition:height .2s; -moz-transition:height .2s;}
 .framework-sidebar a .icon{ margin-right: 10px;}

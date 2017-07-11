@@ -1,0 +1,7 @@
+[
+	{"name":"客户管理","icon":"icon-user","href":"","children":[
+		{"name":"正式客户","href":"formaluser.html"},
+		{"name":"试用客户","href":"trial.html"}
+	]},
+	{"name":"合同管理","icon":"icon-paste","href":"contract.html"}
+]

@@ -3,34 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>象塔客户管理系统首页</title>
+	<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
 	<link rel="stylesheet" type="text/css" href="css/global.css" />
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
 </head>
-<body>
-	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<defs>
-			<symbol id="icon-user" viewBox="0 0 24 24">
-				<title>user</title>
-				<path d="M13.5 16.561v-1.237c1.652-0.931 3-3.252 3-5.574 0-3.728 0-6.75-4.5-6.75s-4.5 3.022-4.5 6.75c0 2.322 1.348 4.643 3 5.574v1.237c-5.088 0.416-9 2.916-9 5.939h21c0-3.023-3.912-5.523-9-5.939z"></path>
-			</symbol>
-			<symbol id="icon-paste" viewBox="0 0 24 24">
-				<title>paste</title>
-				<path d="M16.5 3h-3v-1.5c0-0.825-0.675-1.5-1.5-1.5h-3c-0.825 0-1.5 0.675-1.5 1.5v1.5h-3v3h12v-3zM12 3h-3v-1.497c0.001-0.001 0.002-0.002 0.003-0.003h2.995c0.001 0.001 0.002 0.002 0.003 0.003v1.497zM19.5 7.5v-3.75c0-0.412-0.337-0.75-0.75-0.75h-1.5v1.5h0.75v3h-4.5l-4.5 4.5v6h-6v-13.5h0.75v-1.5h-1.5c-0.413 0-0.75 0.338-0.75 0.75v15c0 0.413 0.337 0.75 0.75 0.75h6.75v4.5h15v-16.5h-4.5zM13.5 9.621v2.379h-2.379l2.379-2.379zM22.5 22.5h-12v-9h4.5v-4.5h7.5v13.5z"></path>
-			</symbol>
-			<symbol id="icon-display" viewBox="0 0 24 24">
-				<title>display</title>
-				<path d="M0 1.5v15h24v-15h-24zM22.5 15h-21v-12h21v12zM15.75 18h-7.5l-0.75 3-1.5 1.5h12l-1.5-1.5z"></path>
-			</symbol>
-			<symbol id="icon-stats-dots" viewBox="0 0 24 24">
-				<title>stats-dots</title>
-				<path d="M3 21h21v3h-24v-24h3zM6.75 19.5c-1.243 0-2.25-1.007-2.25-2.25s1.007-2.25 2.25-2.25c0.066 0 0.132 0.003 0.197 0.009l2.419-4.031c-0.231-0.353-0.365-0.775-0.365-1.228 0-1.243 1.007-2.25 2.25-2.25s2.25 1.007 2.25 2.25c0 0.453-0.135 0.875-0.365 1.228l2.419 4.031c0.065-0.006 0.13-0.009 0.197-0.009 0.050 0 0.1 0.002 0.149 0.005l3.993-6.987c-0.247-0.361-0.392-0.798-0.392-1.268 0-1.243 1.007-2.25 2.25-2.25s2.25 1.007 2.25 2.25c0 1.243-1.007 2.25-2.25 2.25-0.050 0-0.1-0.002-0.149-0.005l-3.993 6.987c0.247 0.361 0.392 0.798 0.392 1.268 0 1.243-1.007 2.25-2.25 2.25s-2.25-1.007-2.25-2.25c0-0.453 0.135-0.875 0.365-1.228l-2.419-4.031c-0.065 0.006-0.13 0.009-0.197 0.009s-0.132-0.003-0.197-0.009l-2.419 4.031c0.231 0.353 0.365 0.775 0.365 1.228 0 1.243-1.007 2.25-2.25 2.25z"></path>
-			</symbol>
-			<symbol id="icon-briefcase" viewBox="0 0 24 24">
-				<title>briefcase</title>
-				<path d="M22.5 6h-6v-1.5c0-0.825-0.675-1.5-1.5-1.5h-6c-0.825 0-1.5 0.675-1.5 1.5v1.5h-6c-0.825 0-1.5 0.675-1.5 1.5v13.5c0 0.825 0.675 1.5 1.5 1.5h21c0.825 0 1.5-0.675 1.5-1.5v-13.5c0-0.825-0.675-1.5-1.5-1.5zM9 4.503c0.001-0.001 0.002-0.002 0.003-0.003h5.995c0.001 0.001 0.002 0.002 0.003 0.003v1.497h-6v-1.497zM22.5 12h-3v2.25c0 0.413-0.337 0.75-0.75 0.75h-1.5c-0.413 0-0.75-0.337-0.75-0.75v-2.25h-9v2.25c0 0.413-0.337 0.75-0.75 0.75h-1.5c-0.413 0-0.75-0.337-0.75-0.75v-2.25h-3v-1.5h21v1.5z"></path>
-			</symbol>
-		</defs>
-	</svg>  
+<body>	  
 	<div class="framework-topbar">
 		<div class="topbar-left fl">
 			<a href="http://www.xiangtazhibo.com" class="topbarlink logo fl">
@@ -41,24 +18,24 @@
 			</a>
 		</div>
 		<div class="topbar-right fr">
-			<a href="" class="topbarlink quiet fr">退出</a>
+			<a href="#" class="topbarlink quiet fr">退出</a>
 			<a href="" class="topbarlink nickname fr">史上最年轻的特级厨师刘昴星</a>			
 		</div>
 	</div>
 	<div class="framework-body">
 		<div class="framework-sidebar">
 			<ul>
-				<li><a href="javascript:;"><svg class="icon icon-user"><use xlink:href="#icon-user"></use></svg>客户管理
+<!-- 				<li><a href="javascript:;"><svg class="icon icon-user"><use xlink:href="#icon-user"></use></svg>客户管理
 				</a>
 					<ul>
 						<li><a href="formaluser.html">正式客户</a></li>
 						<li><a href="trial.html">试用客户</a></li>
 					</ul>
-				</li>
+				</li> -->
 <!-- 				<li><a href="javascript:;"><svg class="icon icon-display"><use xlink:href="#icon-display"></use></svg>频道管理</a></li>
 				<li><a href=""><svg class="icon icon-stats-dots"><use xlink:href="#icon-stats-dots"></use></svg>运营管理</a></li>
 				<li><a href=""><svg class="icon icon-briefcase"><use xlink:href="#icon-briefcase"></use></svg>服务管理</a></li> -->
-				<li><a href="contract.html"><svg class="icon icon-paste"><use xlink:href="#icon-paste"></use></svg>合同管理</a></li>
+				<!-- <li><a href="contract.html"><svg class="icon icon-paste"><use xlink:href="#icon-paste"></use></svg>合同管理</a></li> -->
 			</ul>
 		</div>
 		<div class="framework-main">
@@ -70,13 +47,13 @@
 								<h1>客户总览</h1>
 								<ul class="pandect-count">
 									<li>
-										<span class="count-tit">客户总数</span><span class="count-num txt-gray">0</span>
+										<span class="count-tit">客户总数</span><span class="count-num txt-gray usersum">0</span>
 									</li>
 									<li>
-										<span class="count-tit">快到期客户</span><span class="count-num txt-gray">0</span>
+										<span class="count-tit">快到期客户</span><span class="count-num txt-gray expireuser">0</span>
 									</li>
 									<li>
-										<span class="count-tit">使用客户</span><span class="count-num txt-gray">0</span>
+										<span class="count-tit">试用客户</span><span class="count-num txt-gray trialuser">0</span>
 									</li>
 								</ul>
 							</div>
@@ -84,10 +61,10 @@
 								<h1>频道总览</h1>
 								<ul class="pandect-count">
 									<li>
-										<span class="count-tit">频道总数</span><span class="count-num txt-gray">0</span>
+										<span class="count-tit">频道总数</span><span class="count-num txt-gray livesum">0</span>
 									</li>
 									<li>
-										<span class="count-tit">正在直播</span><span class="count-num txt-gray">0</span>
+										<span class="count-tit">正在直播</span><span class="count-num txt-gray livenum">0</span>
 									</li>
 								</ul>
 							</div>
@@ -110,6 +87,29 @@
 		</div>
 	</div>
 	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="layui/layui.js"></script>
 	<script src="js/common.js"></script>
+	<script>
+		$.ajax({
+			url: prefix_url + 'muser/getUserCensus.do',
+			dataType: 'json',
+			type: 'post',
+			success:function(d){
+				if(d.success === true){
+					var d = d.data;
+					$(".usersum").text(d["usernum"]);
+					$(".expireuser").text(d["expirenum"]);
+					$(".trialuser").text(d["probationnum"]);
+					$(".livesum").text(d["livenum"]);
+					$(".livenum").text(d["islivenum"]);
+				}else{
+					layui.use(['layer'], function(args){
+						var layer = layui.layer;
+						layer.msg(d.msg);
+					});
+				}
+			}
+		});		
+	</script>
 </body>
 </html>

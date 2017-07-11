@@ -1,0 +1,91 @@
+<!--#include file="conn.asp"-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>管理员登入</title>
+<style>
+.theinput {width:200px;height:20px;border:1px solid #cccccc;padding:1px 4px}
+.theinputCheckCode {width:60px;height:20px;border:1px solid #cccccc;padding:1px 4px}
+.KeyBoardBtn {width:25px; height:18px; background:url(images/Keyboard.gif); border:0; cursor:pointer}
+.loginTitle{padding:8px 20px; letter-spacing:1em; font-weight:bold; font-size:14px}
+.CopyRight,.CopyRight a{color:#999999}
+</style>
+<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+<link rel="stylesheet" type="text/css" href="css/c.css" media="all" />
+<script language=javascript>
+function SetFocus(){
+	if (document.Login.UserName.value=="")
+		document.Login.UserName.focus();
+	else
+		document.Login.UserName.select();
+}
+// function CheckForm(){
+	
+	// if (document.Login.CheckCode.value==""){
+ //       alert ("请输入您的验证码！");
+ //       document.Login.CheckCode.focus();
+ //       return(false);
+ //    }
+// }
+</script>
+</head>
+<body>
+<div class="wrapper">
+	<h1><a href="./">网站后台管理系统</a></h1>
+<form name="Login" action="" method="post" target="_parent" onSubmit="return CheckForm();" autocomplete="off">
+	<div class="login">
+			<ul>
+				<li><input class="input" required name="UserName"  type="text"  id="UserName" onFocus="this.select();" autocomplete="off" placeholder="用户名" title="用户名"/></li>
+				<li><input class="input" id="PassWord" onFocus="this.select();" required name="password" type="password" autocomplete="off" placeholder="密码" title="密码" /></li>
+<!-- 				<li><input class="input" name="CheckCode" type="text" autocomplete="off" placeholder="验证码" /><img src="./../include/checkcode.asp" style="cursor:pointer; float:right;" title="点击换一张" onClick="this.src='./../include/checkcode.asp?rnd='+Math.random()" /></li> -->
+			</ul>
+			<input type="submit" name="dosubmit" class="btn" value="提交"/>
+		</div>
+		<p class="yyinfo"><a href="http://www.xiangtazhibo.com">返回直播</a> <br>Powered by xtlive 2017</p>
+</form>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="layui/layui.js"></script>
+<script src="js/common.js"></script>
+<script>	
+	setTimeout(function(){SetFocus()},1000);
+	function CheckForm(){
+		// layui.use(['layer'], function(args){
+			// var layer = layui.layer;
+			var username = document.Login.UserName;
+			var password = document.Login.PassWord;
+			if(username.value == ""){
+				alert("请输入用户名！");
+				document.Login.UserName.focus();
+				return false;
+			}
+			if(password.value == ""){
+				alert("请输入密码！");
+				document.Login.PassWord.focus();
+				return false;
+			}
+			$.ajax({
+				url: prefix_url + 'mManager/login.do',
+				data: {
+					username: username.value,
+					pwd: password.value
+				},
+				dataType: 'json',
+				type: 'post',
+				success:function(d){
+					if(d.success === true){
+						window.location.href="index.html";	
+					}else{
+						layui.use(['layer'], function(args){
+							var layer = layui.layer;
+							layer.msg(d.msg);
+						});
+					}
+				}
+			});
+			return false;
+	  // });
+	}	
+</script>
+</body>
+</html>
