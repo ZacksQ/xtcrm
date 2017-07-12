@@ -147,6 +147,7 @@
 			  		success: function(d){
 			  			if(d.success){
 			  				layer.msg("续期成功");
+			  				showlist(0, pagedevied);
 			  			}else{
 			  				layer.msg(d.msg);
 			  			}

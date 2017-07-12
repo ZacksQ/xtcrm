@@ -242,6 +242,7 @@
 				},function(d){
 					if(d.success){
 						layer.msg("转正成功");
+						showlist(0, pagedevied);
 					}else{
 						layer.msg(d.msg);
 					}
@@ -269,6 +270,7 @@
 				},function(d){
 					if(d.success){
 						layer.msg("分配成功");
+						showlist(0, pagedevied);
 					}else{
 						layer.msg(d.msg);
 					}

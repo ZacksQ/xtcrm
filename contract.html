@@ -32,7 +32,7 @@
 					<h1>合同列表</h1>
 					<button id="addcontract" class="btn btn-primary fr">录入合同</button>
 				</div>				
-				<table class="layui-table">
+				<table class="layui-table" id="contractlist">
 				  <colgroup>
 				    <col width="150">
 				    <col width="200">
@@ -50,76 +50,13 @@
 				    </tr> 
 				  </thead>
 				  <tbody>
-				    <tr>
+				    <!-- <tr>
 				      <td>XT201706264123</td>
 				      <td>中国联合通信有限公司</td>
 				      <td>正式合同</td>
 				      <td>2017-10-20</td>
 				      <td><a href="#" class="showcontract">查看</a></td>
-				    </tr>
-				     <tr>
-				      <td>XT201706264123</td>
-				      <td>中国联合通信有限公司</td>
-				      <td>正式合同</td>
-				      <td>2017-10-20</td>
-				      <td><a href="#" class="showcontract">查看</a></td>
-				    </tr>
-				     <tr>
-				      <td>XT201706264123</td>
-				      <td>中国联合通信有限公司</td>
-				      <td>正式合同</td>
-				      <td>2017-10-20</td>
-				      <td><a href="#" class="showcontract">查看</a></td>
-				    </tr>
-				    <tr>
-				      <td>XT201706264123</td>
-				      <td>中国联合通信有限公司</td>
-				      <td>正式合同</td>
-				      <td>2017-10-20</td>
-				      <td><a href="#" class="showcontract">查看</a></td>
-				    </tr>
-				    <tr>
-				      <td>XT201706264123</td>
-				      <td>中国联合通信有限公司</td>
-				      <td>正式合同</td>
-				      <td>2017-10-20</td>
-				      <td><a href="#" class="showcontract">查看</a></td>
-				    </tr>
-				    <tr>
-				      <td>XT201706264123</td>
-				      <td>中国联合通信有限公司</td>
-				      <td>正式合同</td>
-				      <td>2017-10-20</td>
-				      <td><a href="#" class="showcontract">查看</a></td>
-				    </tr>
-				     <tr>
-				      <td>XT201706264123</td>
-				      <td>中国联合通信有限公司</td>
-				      <td>正式合同</td>
-				      <td>2017-10-20</td>
-				      <td><a href="#" class="showcontract">查看</a></td>
-				    </tr>
-				     <tr>
-				      <td>XT201706264123</td>
-				      <td>中国联合通信有限公司</td>
-				      <td>正式合同</td>
-				      <td>2017-10-20</td>
-				      <td><a href="#" class="showcontract">查看</a></td>
-				    </tr>
-				    <tr>
-				      <td>XT201706264123</td>
-				      <td>中国联合通信有限公司</td>
-				      <td>正式合同</td>
-				      <td>2017-10-20</td>
-				      <td><a href="#" class="showcontract">查看</a></td>
-				    </tr>
-				    <tr>
-				      <td>XT201706264123</td>
-				      <td>中国联合通信有限公司</td>
-				      <td>正式合同</td>
-				      <td>2017-10-20</td>
-				      <td><a href="#" class="showcontract">查看</a></td>
-				    </tr>
+				    </tr> -->
 				  </tbody>
 				</table>
 				<div id="laypage"></div>
@@ -128,34 +65,34 @@
 	</div>
 	<div class="layui-layer-shade" id="dialog-shade" times="1" style="z-index:19891014; background-color:#000; opacity:0.3; filter:alpha(opacity=30); display:none"></div>
 	<div class="layui-layer layui-layer-dialog  layer-anim" id="contract-dialog" type="dialog" times="1" showtime="0" contype="string" style="z-index: 19891015; width: 360px; top: 25%; left: 0;right:0; margin:auto; display:none"><div class="layui-layer-title" style="cursor: move;">录入合同</div><div id="" class="layui-layer-content">
-		<form class="layui-form" action="">
+		<form class="layui-form" action="" id="insertcontract">
 			<div class="layui-form-item">
 				<label class="layui-form-label" for="">合同类型</label>
 				<div class="layui-input-block">
-					<select name="" id="">
+					<select id="" name="contractype">
 						<option value=""></option>
-						<option value="0">正式合同</option>
-						<option value="1">临时合同</option>
+						<option value="1">正式合同</option>
+						<option value="2">临时合同</option>
 					</select>
 				</div>
 			</div>
 			<div class="layui-form-item">
 				<label class="layui-form-label" for="">到期时间</label>
 				<div class="layui-input-block">
-					<input type="text" name="duetime" id="LAY_demorange_s" class="layui-input">
+					<input type="text" name="duetime" id="LAY_demorange_s" placeholder="请选择" class="layui-input">
 				</div>
 			</div>
 			<div class="layui-form-item">
 				<label class="layui-form-label" for="">合同扫描件</label>
 				<div class="layui-input-block">
 					<div class="plusarea">
-						<input type="file">
+						<input type="file" name="contractupload">
 					</div>					
 				</div>
 			</div>
-			<div>
+			<div class="uploadcontractlist">
 				<ul>
-					<li></li>
+					<!-- <li></li> -->
 				</ul>
 			</div>
 		</form>
@@ -164,6 +101,99 @@
 	<script src="layui/layui.js"></script>
 	<script src="js/common.js"></script>
 	<script>
+	var contractType = {
+		1: "正式",
+		2: "非正式"
+	};
+	var contractarr = [];
+
+	$("#insertcontract input[name=contractupload]").change(function(){
+		var _this = $(this);
+		var file = document.querySelector("#insertcontract input[name=contractupload]").files[0];
+		var fr = new FileReader();
+		fr.onload = function(e){
+			var fd = new FormData();
+			fd.append("file", file);
+			fd.append("type", 1);
+			$.ajax({
+				type:"post",
+				url: prefix_url + 'img/uploadImg.do',
+				dataType:"json",
+				processData: false,
+				contentType: false,
+				data:fd,
+				success:function(d){
+					if(d.success){
+						contractarr.push(d.data.url);
+					}else{
+						layer.msg(d.msg);
+					}						
+				}
+			});
+			$(".uploadcontractlist ul").append('<li><img src="' + e.target.result + '" /></li>');
+			_this.data("src", e.target.result);
+		}
+		fr.readAsDataURL(file);
+		
+		// console.log(file)
+		// contractarr.push(file);
+		// console.log(contractarr)
+	})
+		function showlist(startNum, perNum){
+				$.ajax({
+					url: prefix_url + 'mAgreement/getAgreementList.do',
+					dataType: 'json',
+					type: 'post',
+					data:{
+						startNum: startNum,
+						perNum: perNum
+					},
+					success: function(d){
+						if(d.success){
+							var list = d.data.list,								
+								listbody = '';
+							list.forEach(function(item){
+								listbody += '<tr>' +
+							      '<td>' + item["id"] + '</td>' +
+							      '<td>' + item["name"] + '</td>' +
+							      '<td>' + contractType[item["type"]] + '</td>' +
+							      '<td>' + item["expirationtimeStr"] + '</td>' +
+							      '<td><a href="#" class="showcontract" data-trid="' + item["id"] + '">查看</a></td>' +
+							    '</tr>';
+							});
+							$("#contractlist tbody").html(listbody);
+							
+							// $(".showcontract").click(function(){
+							// 	$("#becomefull-dialog input[name=userid]").val($(this).attr("data-trid"));
+						 //    	$("#becomefull-dialog").fadeIn().removeClass("layer-anim-close");
+						 //    	$("#dialog-shade").fadeIn();
+						 //    });
+						$(".showcontract").click(function(){
+							var contractid = $(this).attr("data-trid");
+							$.post(prefix_url + 'mAgreement/infoAgreement.do', {
+								agreementId: contractid
+								},function(d){
+									if(d.success){
+										var contractlist = '<div class="uploadcontractlist"><ul>'
+										var contractimg = d.data.filelist.forEach(function(item){
+											contractlist += '<li><img src="' + item.url + '" /></li>'
+										});
+										contractlist += '</ul></div>';
+										layer.open({
+											title: '合同查看',
+											btn: [],
+											content: contractlist
+										});
+									}else{
+										layer.msg(d.msg);
+									}
+									
+								})
+							})
+						}					
+					}
+				});
+			}
 		layui.use(['layer', 'laypage', 'form', 'laydate'], function(args){
 		    var layer = layui.layer,
 		    	laypage = layui.laypage,
@@ -173,17 +203,29 @@
 			    min: laydate.now()
 			    ,max: '2099-06-16 23:59:59'
 			    ,istoday: false
-			    
+			    ,format: 'YYYY-MM-DD hh:mm:ss' //日期格式
 			  };
 			 document.getElementById('LAY_demorange_s').onclick = function(){
 			    start.elem = this;
 			    laydate(start);
 			  }
-		    laypage({
-			    cont: 'laypage'
-			    ,skin: '#0099cc'
-			    ,pages: 3 //总页数
-			  });
+		    $.post(prefix_url + 'mAgreement/getAgreementList.do', {
+						startNum: 0,
+						perNum: 1
+					}, function(d){
+						var pages = d.data.count;
+						// console.log(pages)
+						laypage({
+						    cont: 'laypage'
+						    ,skin: '#0099cc'
+						    ,pages: Math.ceil(pages / pagedevied) //总页数
+						    ,jump: function(obj, first){
+						    	if(!first)
+						    		showlist((obj.curr - 1) * pagedevied, pagedevied);
+						    	}
+						  });
+						showlist(0, pagedevied);
+					});	
 
 		    $("#addcontract").click(function(){
 		    	$("#contract-dialog").fadeIn().removeClass("layer-anim-close");
@@ -195,11 +237,51 @@
 				$("#dialog-shade").fadeOut();
 			});
 
-			$(".showcontract").click(function(){
-				layer.open({
-					title: '合同查看',
+		    $("#contract-dialog .layui-layer-btn0").click(function(){
+		    	var selectedcontractype = $("#insertcontract select[name=contractype] option:selected").val();
+		    	var duetime = $("#insertcontract input[name=duetime]").val();
+				if(selectedcontractype==""){
+					layer.msg("请选择合同类型");
+					return false;
+				}
+				if(duetime==""){
+					layer.msg("请设置到期时间");
+					return false;	
+				}
+
+				if(contractlist.length <= 0){
+					layer.msg("请上传至少一张合同扫描件");
+					return false;		
+				}
+
+				// var fd = new FormData();
+				// fd.append("type", selectedcontractype);
+				// fd.append("expirationtime", duetime);
+				// fd.append("fileurls", contractlist.toString());
+				$.ajax({
+					type:"post",
+					url: prefix_url + 'mAgreement/addAgreement.do',
+					dataType:"json",
+					data:{
+						"type": selectedcontractype,
+						"expirationtime": duetime,
+						"fileurls": contractarr.toString()
+					},
+					success:function(d){
+						if(d.success){
+							contractarr = [];
+							$(".uploadcontractlist ul").html('');
+							layer.msg("录入成功");
+							showlist(0, pagedevied);
+						}else{
+							layer.msg(d.msg);
+						}
+						$("#contract-dialog").fadeOut().addClass("layer-anim-close");
+						$("#dialog-shade").fadeOut();						
+					}
 				});
-			})
+		    });
+			
 		  });  
 
 	</script>
