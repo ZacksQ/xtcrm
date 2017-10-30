@@ -3,5 +3,7 @@
 		{"name":"正式客户","href":"formaluser.html"},
 		{"name":"试用客户","href":"trial.html"}
 	]},
-	{"name":"合同管理","icon":"icon-paste","href":"contract.html"}
+	{"name":"合同管理","icon":"icon-paste","href":"contract.html"},
+	{"name":"新闻管理","icon":"icon-article","href":"article.html"},
+	{"name":"案例管理","icon":"icon-case","href":"case.html"}
 ]

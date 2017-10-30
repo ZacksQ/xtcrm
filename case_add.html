@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新闻管理 - 象塔直播客户管理系统</title>
+	<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+	<link rel="stylesheet" type="text/css" href="css/global.css" />
+	<link rel="stylesheet" type="text/css" href="css/contract.css" />	
+</head>
+<body>
+	<div class="framework-topbar">
+		<div class="topbar-left fl">
+			<a href="http://www.xiangtazhibo.com" class="topbarlink logo fl">
+				<img src="images/sharelogo.png" alt="">
+			</a>
+			<a href="index.html" class="topbarlink fl home">
+				管理控制台
+			</a>
+		</div>
+		<div class="topbar-right fr">
+			<a href="" class="topbarlink quiet fr">退出</a>
+			<a href="" class="topbarlink nickname fr">史上最年轻的特级厨师刘昴星</a>			
+		</div>
+	</div>
+	<div class="framework-body">
+		<div class="framework-sidebar">
+			<ul></ul>
+		</div>
+		<div class="framework-main">
+			<div class="framework-main-body">				
+				<div class="con-tit">
+					<h1>新闻编辑</h1>
+					<button type="button" id="back" class="btn btn-primary fr">返回</button>
+				</div>				
+				<form class="layui-form formlist" action="" id="formlist">
+					<div class="layui-form-item" style="width:30%">
+						<label class="layui-form-label" for="">标题</label>
+						<div class="layui-input-block">
+							<input type="text" name="title" class="layui-input">
+							<!-- <input type="hidden" name="type" value="1"> -->
+						</div>
+					</div>
+					<div class="layui-form-item" style="width:30%">
+						<label class="layui-form-label" for="">作者</label>
+						<div class="layui-input-block">
+							<input type="text" name="auther" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item" style="width:200px;">
+						<label class="layui-form-label" for="">排序</label>
+						<div class="layui-input-block">
+							<input type="text" name="order_nums" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label" for="">封面</label>
+						<div class="layui-input-block">
+							<!-- <div class="plusarea"> -->
+								<input type="file" name="cover_img">
+							<!-- </div>					 -->
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label" for="">内容</label>
+						<div class="layui-input-block">
+							<script id="container" name="content" type="text/plain" style="height:200px;width:100%;margin-top:10px;"></script>		
+						</div>
+					</div>
+					<button id="submit" class="btn btn-primary fr">提交</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="layui-layer-shade" id="dialog-shade" times="1" style="z-index:19891014; background-color:#000; opacity:0.3; filter:alpha(opacity=30); display:none"></div>
+	<div class="layui-layer layui-layer-dialog  layer-anim" id="contract-dialog" type="dialog" times="1" showtime="0" contype="string" style="z-index: 19891015; width: 360px; top: 25%; left: 0;right:0; margin:auto; display:none"><div class="layui-layer-title" style="cursor: move;">录入合同</div><div id="" class="layui-layer-content">
+		<form class="layui-form" action="" id="insertcontract">
+			<div class="layui-form-item">
+				<label class="layui-form-label" for="">合同类型</label>
+				<div class="layui-input-block">
+					<select id="" name="contractype">
+						<option value=""></option>
+						<option value="1">正式合同</option>
+						<option value="2">临时合同</option>
+					</select>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label" for="">到期时间</label>
+				<div class="layui-input-block">
+					<input type="text" name="duetime" id="LAY_demorange_s" placeholder="请选择" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label" for="">合同扫描件</label>
+				<div class="layui-input-block">
+					<div class="plusarea">
+						<input type="file" name="contractupload">
+					</div>					
+				</div>
+			</div>
+			<div class="uploadarticlelist">
+				<ul>
+					<!-- <li></li> -->
+				</ul>
+			</div>
+		</form>
+	</div><span class="layui-layer-setwin"><a class="layui-layer-ico layui-layer-close layui-layer-close1" href="javascript:;"></a></span><div class="layui-layer-btn layui-layer-btn-"><a class="layui-layer-btn0">确定</a></div><span class="layui-layer-resize"></span></div>
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="layui/layui.js"></script>
+	<script src="js/common.js"></script>
+	<!-- 配置文件 -->
+	<script type="text/javascript" src="http://123.206.221.228:8081/newlivecrm/ueditor/ueditor.config.js"></script>
+	<!-- 编辑器源码文件 -->
+	<script type="text/javascript" src="http://123.206.221.228:8081/newlivecrm/ueditor/ueditor.all.js"></script>
+
+	<script>
+	$("#back").click(function(){
+		window.history.back();
+	})
+
+	$("#formlist").submit(function(){
+		uploadimg()
+		return false;
+	})
+
+	layui.use(['layer', 'laypage', 'form', 'laydate'], function(args){
+		    var layer = layui.layer,
+		    	laypage = layui.laypage,
+		    	form = layui.form(),
+		    	laydate = layui.laydate;
+		    })
+
+	function uploadimg(){
+		var file = $("input[name=cover_img]").get(0).files[0]
+		if(file){
+			var fd = new FormData()
+			fd.append('type', 3)
+			fd.append('file', file)
+			$.ajax({
+				url: prefix_url + 'img/uploadImg.do',
+				type: 'post',
+				dataType: 'json',
+				data: fd,
+				processData: false,
+				contentType: false,
+				success: function(json){
+					if(json.success){
+						insertRecord(json.data.url)	
+					}else{
+						layer.msg(json.msg)
+					}					
+				}
+			})
+		}else{
+			insertRecord()
+		}
+		
+	}
+
+	function insertRecord(cover_url){
+		var formdata = $("#formlist").serializeArray()
+		var postdata = {type: 2}
+		if(cover_url !== undefined){
+			postdata.cover_url = cover_url
+		}
+		$.each(formdata,function(i){
+			postdata[formdata[i]["name"]] = formdata[i]["value"]
+		})
+
+		if(postdata.title === ""){
+			layer.msg("标题不能为空")
+			return false
+		}
+		
+		$.post(prefix_url + 'mNews/add.do', postdata, function(json){
+			if(json.success){
+				layer.msg('添加成功');
+				$.each(postdata,function(i){
+					$("input[name="+ i +"]").val('');
+				})
+				ue.setContent('')
+			}else{
+				layer.msg(json.msg)
+			}
+		}, 'json')
+	}
+
+	// function formclear(){
+	// 	$("input[name=cover_img]").val('')
+
+	// }
+		function del(id){
+			layer.confirm('确认要删除吗？', {
+			  btn: ['确定', '取消'] //可以无限个按钮
+			  
+			}, function(index, layero){
+			  //按钮【按钮一】的回调
+	  			$.post(prefix_url + 'mNews/del.do', {newsId: id}, function(json){
+					if(json.success){
+						layer.msg('删除成功！')
+						$("#tr"+id).remove()
+					}else{
+						layer.msg(json.msg)
+					}
+				},'json')
+
+			});
+
+		}
+
+		// var UE={}
+		var ue = UE.getEditor("container")
+		
+
+	</script>
+</body>
+</html>
