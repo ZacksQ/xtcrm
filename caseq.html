@@ -29,8 +29,8 @@
 		<div class="framework-main">
 			<div class="framework-main-body">				
 				<div class="con-tit">
-					<h1>新闻列表</h1>
-					<a href="article_add.html" id="addcontract" class="btn btn-primary fr">新闻录入</a>
+					<h1>案例列表</h1>
+					<a href="caseq_add.html" id="addcontract" class="btn btn-primary fr">案例录入</a>
 				</div>				
 				<table class="layui-table" id="articlelist">
 				  <colgroup>
@@ -62,40 +62,7 @@
 	<script src="layui/layui.js"></script>
 	<script src="js/common.js"></script>
 	<script>
-	var contractarr = [];
-
-	$("#insertcontract input[name=contractupload]").change(function(){
-		var _this = $(this);
-		var file = document.querySelector("#insertcontract input[name=contractupload]").files[0];
-		var fr = new FileReader();
-		fr.onload = function(e){
-			var fd = new FormData();
-			fd.append("file", file);
-			fd.append("type", 1);
-			$.ajax({
-				type:"post",
-				url: prefix_url + 'img/uploadImg.do',
-				dataType:"json",
-				processData: false,
-				contentType: false,
-				data:fd,
-				success:function(d){
-					if(d.success){
-						contractarr.push(d.data.url);
-					}else{
-						layer.msg(d.msg);
-					}						
-				}
-			});
-			$(".uploadarticlelist ul").append('<li><img src="' + e.target.result + '" /></li>');
-			_this.data("src", e.target.result);
-		}
-		fr.readAsDataURL(file);
-		
-		// console.log(file)
-		// contractarr.push(file);
-		// console.log(contractarr)
-	})
+	
 		function showlist(startNum, perNum){
 				$.ajax({
 					url: prefix_url + 'mNews/list.do',
@@ -104,7 +71,7 @@
 					data:{
 						startNum: startNum,
 						perNum: perNum,
-						type: 1
+						type: 3
 					},
 					success: function(d){
 						if(d.success){
@@ -116,7 +83,7 @@
 							      '<td>' + item["title"] + '</td>' +
 							      '<td>' + item["auther"] + '</td>' +
 							      '<td>' + item["create_timestr"] + '</td>' +
-							      '<td><a href="article_editor.html?id=' + item["id"] + '">编辑</a>&nbsp;&nbsp;<a href="#" onclick="del(\'' + item["id"] + '\')">删除</a></td>' +
+							      '<td><a href="caseq_editor.html?id=' + item["id"] + '">编辑</a>&nbsp;&nbsp;<a href="#" onclick="del(\'' + item["id"] + '\')">删除</a></td>' +
 							    '</tr>';
 							});
 							$("#articlelist tbody").html(listbody);
@@ -139,7 +106,7 @@
 		    $.post(prefix_url + 'mNews/list.do', {
 						startNum: 0,
 						perNum: 1,
-						type: 1
+						type: 3
 					}, function(d){
 						var pages = d.data.count;
 						// console.log(pages)      
@@ -215,7 +182,6 @@
 		function del(id){
 			layer.confirm('确认要删除吗？', {
 			  btn: ['确定', '取消'] //可以无限个按钮
-			  
 			}, function(index, layero){
 			  //按钮【按钮一】的回调
 	  			$.post(prefix_url + 'mNews/del.do', {newsId: id}, function(json){
