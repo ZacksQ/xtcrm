@@ -34,10 +34,11 @@
 				<table class="layui-table" id="formaluserlist">
 				  <colgroup>
 				    <col width="150">
-				    <col width="200">
-				    <col width="200">
-				    <col width="200">
-				    <col width="200">
+				    <col width="150">
+				    <col width="150">
+				    <col width="150">
+				    <col width="150">
+				    <col width="150">
 				    <col width="50">
 				  </colgroup>
 				  <thead>
@@ -45,8 +46,9 @@
 				      <th>账号</th>
 				      <th>注册时间</th>
 				      <th>签约时间</th>
-				      <th>有效期</th>
-				      <th>客户经理</th>
+				      <th>到期时间</th>
+					  <th>有效期</th>
+					  <th>客户经理</th>
 				      <th>操作</th>
 				    </tr> 
 				  </thead>
@@ -99,9 +101,10 @@
 								listbody += '<tr>' +
 							      '<td>' + item["phone"] + '</td>' +
 							      '<td>' + item["createtimeStr"] + '</td>' +
-							      '<td class="officialTimeStr">' + item["officialTimeStr"] + '</td>' +
+							      '<td class="officialTimeStr">' + (item["officialTimeStr"] == null ? "数据为空" : item["officialTimeStr"]) + '</td>' +
+                                    '<td class="expirationtimestr">' + (item["expirationtimestr"] == null ? "数据为空" : item["expirationtimestr"]) + '</td>' +
 							      '<td>' + item["remainingtime"] + '</td>' +
-							      '<td>' + item["nickname"] + '</td>' +
+							      '<td>' + (item["nickname"] == null ? "未指定" : item["nickname"]) + '</td>' +
 							      '<td><a href="#" class="renewal" data-trid="' + item["id"] + '">续期</a></td>' +
 							    '</tr>';
 							});
@@ -109,7 +112,7 @@
 							
 							$(".renewal").click(function(){
 								// console.log($(this).parent().parent().find(".officialTimeStr").text())
-								$("#renewal-dialog input[name=duetime]").val($(this).parent().parent().find(".officialTimeStr").text())
+								$("#renewal-dialog input[name=duetime]").val($(this).parent().parent().find(".expirationtimestr").text())
 								$("#renewal-dialog input[name=userid]").val($(this).attr("data-trid"));
 						    	$("#renewal-dialog").fadeIn().removeClass("layer-anim-close");
 						    	$("#dialog-shade").fadeIn();

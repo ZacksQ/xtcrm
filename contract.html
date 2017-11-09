@@ -37,14 +37,16 @@
 				    <col width="150">
 				    <col width="200">
 				    <col width="200">
-				    <col width="200">
+					  <col width="200">
+					  <col width="200">
 				    <col width="50">
 				  </colgroup>
 				  <thead>
 				    <tr>
 				      <th>合同编号</th>
-				      <th>客户名称</th>
-				      <th>合同类型</th>
+				      <th>合同名称</th>
+						<th>客户名称</th>
+						<th>合同类型</th>
 				      <th>有效期</th>
 				      <th>操作</th>
 				    </tr> 
@@ -155,8 +157,9 @@
 							list.forEach(function(item){
 								listbody += '<tr>' +
 							      '<td>' + item["id"] + '</td>' +
-							      '<td>' + item["name"] + '</td>' +
-							      '<td>' + contractType[item["type"]] + '</td>' +
+							      '<td>' + (item["name"] == null ? "" : item["name"]) + '</td>' +
+                                    '<td>' + (item["username"] == null ? "未指定客户" : item["username"]) + '</td>' +
+                                    '<td>' + contractType[item["type"]] + '</td>' +
 							      '<td>' + item["expirationtimeStr"] + '</td>' +
 							      '<td><a href="#" class="showcontract" data-trid="' + item["id"] + '">查看</a></td>' +
 							    '</tr>';

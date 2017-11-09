@@ -35,10 +35,11 @@
 				<table class="layui-table" id="trialuserlist">
 				  <colgroup>
 				    <col width="150">
-				    <col width="200">
-				    <col width="200">
-				    <col width="200">
-				    <col width="200">
+				    <col width="150">
+				    <col width="150">
+				    <col width="150">
+					  <col width="150">
+					  <col width="150">
 				    <col width="50">
 				  </colgroup>
 				  <thead>
@@ -46,7 +47,8 @@
 				      <th>账号</th>
 				      <th>客户来源</th>
 				      <th>注册时间</th>
-				      <th>有效期</th>
+						<th>有效时间</th>
+						<th>有效期</th>
 				      <th>客户经理</th>
 				      <th>操作</th>
 				    </tr> 
@@ -117,7 +119,8 @@
 	<script>
 	var createType = {
 		1: "分配账号",
-		2: "自行注册"
+		2: "自行注册",
+		3: "案例页面申请试用"
 	};
 
 	function showlist(startNum, perNum){
@@ -137,10 +140,11 @@
 							list.forEach(function(item){
 								listbody += '<tr>' +
 							      '<td>' + item["phone"] + '</td>' +
-							      '<td>' + createType[item["createType"]] + '</td>' +
+							      '<td>' + createType[(item["createType"] == null ? 1 : item["createType"])] + '</td>' +
 							      '<td>' + item["createtimeStr"] + '</td>' +
+                                    '<td>' + item["expirationtimestr"] + '</td>' +
 							      '<td>' + item["remainingtime"] + '</td>' +
-							      '<td>' + item["nickname"] + '</td>' +
+							      '<td>' + (item["nickname"] == null ? "未指定" : item["nickname"]) + '</td>' +
 							      '<td><a href="#" class="becomefull" data-trid="' + item["id"] + '">转正</a></td>' +
 							    '</tr>';
 							});
@@ -198,7 +202,7 @@
 					if(d.success){
 						var contractlist = d.data.list;
 						contractlist.forEach(function(item){
-							$("#contractlist select[name=contractlist]").append("<option value='" + item["id"] + "'>" + item["id"] + "</option>")
+							$("#contractlist select[name=contractlist]").append("<option value='" + item["id"] + "'>" + item["id"] + "(" + (item["name"] == null ? "" : item["name"]) + ")</option>")
 						});						
 						form.render('select');
 					}else{
